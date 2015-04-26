@@ -1,0 +1,35 @@
+{
+  "name": "get-gulp-tasks",
+  "version": "0.0.0",
+  "description": "Get the gulp tasks from a gulp project",
+  "license": "MIT",
+  "repository": "sindresorhus/get-gulp-tasks",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "gulpfriendly",
+    "gulp",
+    "gulpfile",
+    "tasks",
+    "get",
+    "project"
+  ],
+  "dependencies": {
+    "resolve-from": "^1.0.0"
+  },
+  "devDependencies": {
+    "ava": "0.0.4"
+  }
+}
