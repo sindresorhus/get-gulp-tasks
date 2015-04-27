@@ -2,17 +2,20 @@
 var childProcess = require('child_process');
 var resolveFrom = require('resolve-from');
 
-module.exports = function (pth, opts, cb) {
+module.exports = function (pth, cb) {
 	if (typeof pth !== 'string') {
-		throw new Error('path required');
+		cb = pth;
+		pth = process.cwd();
 	}
 
-	if (typeof opts !== 'object') {
-		cb = opts;
-		opts = {};
-	}
+	var gulpBinPath;
 
-	var gulpBinPath = opts.bin || resolveFrom(pth, 'gulp/bin/gulp');
+	try {
+		gulpBinPath = resolveFrom(pth, 'gulp/bin/gulp');
+	} catch (err) {
+		setImmediate(cb, err);
+		return;
+	}
 
 	childProcess.execFile(gulpBinPath, ['--tasks-simple'], {cwd: pth}, function (err, stdout) {
 		if (err) {

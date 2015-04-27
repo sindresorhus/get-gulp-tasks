@@ -37,21 +37,14 @@ getGulpTasks('gulp-project', function (err, tasks) {
 
 ## API
 
-### getGulpTasks(path, [options], callback)
+### getGulpTasks([path], callback)
 
 #### path
 
-*Required*  
-Type: `string`
+Type: `string`  
+Default: `process.cwd()`
 
 Path to the directory of your gulp project.
-
-#### options.bin
-
-Type: `string`  
-Default: Relative to `path`.
-
-Specify a custom `gulp` binary location.
 
 #### callback(err, tasks)
 
