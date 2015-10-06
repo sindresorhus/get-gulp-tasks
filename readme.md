@@ -28,7 +28,7 @@ You can get its tasks with:
 ```js
 const getGulpTasks = require('get-gulp-tasks');
 
-getGulpTasks('gulp-project', (err, tasks) => {
+getGulpTasks('gulp-project').then(tasks => {
 	console.log(tasks);
 	//=> ['default', 'test']
 });
@@ -37,7 +37,7 @@ getGulpTasks('gulp-project', (err, tasks) => {
 
 ## API
 
-### getGulpTasks([path], callback)
+### getGulpTasks([path])
 
 #### path
 
@@ -45,11 +45,6 @@ Type: `string`
 Default: `process.cwd()`
 
 Path to the directory of your gulp project.
-
-#### callback(err, tasks)
-
-*Required*  
-Type: `function`
 
 
 ## License
