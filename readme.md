@@ -39,6 +39,8 @@ getGulpTasks('gulp-project').then(tasks => {
 
 ### getGulpTasks([path])
 
+Returns a promise.
+
 #### path
 
 Type: `string`  
