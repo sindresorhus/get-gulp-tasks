@@ -1,6 +1,6 @@
 {
   "name": "get-gulp-tasks",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Get the gulp tasks from a gulp project",
   "license": "MIT",
   "repository": "sindresorhus/get-gulp-tasks",
