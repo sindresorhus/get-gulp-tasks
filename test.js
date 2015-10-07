@@ -1,14 +1,7 @@
-'use strict';
-var path = require('path');
-var test = require('ava');
-var getGulpTasks = require('./');
+import path from 'path';
+import test from 'ava';
+import fn from './';
 
-test(function (t) {
-	t.plan(3);
-
-	getGulpTasks(path.join(__dirname, 'fixture'), function (err, tasks) {
-		t.assert(!err, err);
-		t.assert(tasks[0] === 'default');
-		t.assert(tasks[1] === 'test');
-	});
+test(async t => {
+	t.same(await fn(path.join(__dirname, 'fixture')), ['default', 'test']);
 });

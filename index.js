@@ -1,10 +1,11 @@
 'use strict';
 var childProcess = require('child_process');
 var resolveFrom = require('resolve-from');
+var pify = require('pify');
+var Promise = require('pinkie-promise');
 
-module.exports = function (pth, cb) {
+module.exports = function (pth) {
 	if (typeof pth !== 'string') {
-		cb = pth;
 		pth = process.cwd();
 	}
 
@@ -13,18 +14,13 @@ module.exports = function (pth, cb) {
 	try {
 		gulpBinPath = resolveFrom(pth, 'gulp/bin/gulp');
 	} catch (err) {
-		setImmediate(cb, err);
-		return;
+		return Promise.reject(err);
 	}
 
-	childProcess.execFile(gulpBinPath, ['--tasks-simple'], {cwd: pth}, function (err, stdout) {
-		if (err) {
-			cb(err);
-			return;
-		}
+	return pify(childProcess.execFile, Promise)(gulpBinPath, ['--tasks-simple'], {cwd: pth})
+		.then(function (stdout) {
+			var ret = stdout.trim();
 
-		var ret = stdout.trim();
-
-		cb(null, ret ? ret.split('\n') : []);
-	});
+			return ret ? ret.split('\n') : [];
+		});
 };

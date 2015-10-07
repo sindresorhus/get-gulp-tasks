@@ -17,18 +17,18 @@ $ npm install --save get-gulp-tasks
 Imagine a `gulpfile.js` in `./gulp-project`:
 
 ```js
-var gulp = require('gulp');
+const gulp = require('gulp');
 
-gulp.task('default', function () {});
-gulp.task('test', function () {});
+gulp.task('default', () => {});
+gulp.task('test', () => {});
 ```
 
 You can get its tasks with:
 
 ```js
-var getGulpTasks = require('get-gulp-tasks');
+const getGulpTasks = require('get-gulp-tasks');
 
-getGulpTasks('gulp-project', function (err, tasks) {
+getGulpTasks('gulp-project').then(tasks => {
 	console.log(tasks);
 	//=> ['default', 'test']
 });
@@ -37,7 +37,7 @@ getGulpTasks('gulp-project', function (err, tasks) {
 
 ## API
 
-### getGulpTasks([path], callback)
+### getGulpTasks([path])
 
 #### path
 
@@ -45,11 +45,6 @@ Type: `string`
 Default: `process.cwd()`
 
 Path to the directory of your gulp project.
-
-#### callback(err, tasks)
-
-*Required*  
-Type: `function`
 
 
 ## License
