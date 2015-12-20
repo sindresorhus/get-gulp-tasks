@@ -9,15 +9,10 @@ module.exports = function (pth) {
 		pth = process.cwd();
 	}
 
-	var gulpBinPath;
+	var gulpBinPath = resolveFrom(pth, 'gulp/bin/gulp');
+	var args = [gulpBinPath, '--tasks-simple'];
 
-	try {
-		gulpBinPath = resolveFrom(pth, 'gulp/bin/gulp');
-	} catch (err) {
-		return Promise.reject(err);
-	}
-
-	return pify(childProcess.execFile, Promise)(gulpBinPath, ['--tasks-simple'], {cwd: pth})
+	return pify(childProcess.execFile, Promise)(process.execPath, args, {cwd: pth})
 		.then(function (stdout) {
 			var ret = stdout.trim();
 
