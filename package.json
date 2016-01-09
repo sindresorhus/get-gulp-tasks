@@ -10,7 +10,7 @@
     "url": "sindresorhus.com"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4"
   },
   "scripts": {
     "pretest": "cd fixture && npm install",
@@ -28,9 +28,7 @@
     "project"
   ],
   "dependencies": {
-    "pify": "^2.2.0",
-    "pinkie-promise": "^2.0.0",
-    "resolve-from": "^2.0.0"
+    "execa": "^0.2.1"
   },
   "devDependencies": {
     "ava": "*",

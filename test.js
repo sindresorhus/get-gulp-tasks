@@ -1,7 +1,7 @@
 import path from 'path';
 import test from 'ava';
-import fn from './';
+import m from './';
 
 test(async t => {
-	t.same(await fn(path.join(__dirname, 'fixture')), ['default', 'test']);
+	t.same(await m(path.join(__dirname, 'fixture')), ['default', 'test']);
 });

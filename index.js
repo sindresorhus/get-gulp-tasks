@@ -1,21 +1,11 @@
 'use strict';
-var childProcess = require('child_process');
-var resolveFrom = require('resolve-from');
-var pify = require('pify');
-var Promise = require('pinkie-promise');
+const execa = require('execa');
 
-module.exports = function (pth) {
-	if (typeof pth !== 'string') {
-		pth = process.cwd();
+module.exports = cwd => {
+	if (typeof cwd !== 'string') {
+		cwd = process.cwd();
 	}
 
-	var gulpBinPath = resolveFrom(pth, 'gulp/bin/gulp');
-	var args = [gulpBinPath, '--tasks-simple'];
-
-	return pify(childProcess.execFile, Promise)(process.execPath, args, {cwd: pth})
-		.then(function (stdout) {
-			var ret = stdout.trim();
-
-			return ret ? ret.split('\n') : [];
-		});
+	return execa('gulp', ['--tasks-simple'], {cwd})
+		.then(x => x.stdout ? x.stdout.split('\n') : []);
 };
