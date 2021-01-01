@@ -1,4 +1,4 @@
-# get-gulp-tasks [![Build Status](https://travis-ci.org/sindresorhus/get-gulp-tasks.svg?branch=master)](https://travis-ci.org/sindresorhus/get-gulp-tasks)
+# get-gulp-tasks
 
 > Get the gulp tasks from a gulp project
 
