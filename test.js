@@ -1,7 +1,6 @@
-import path from 'path';
 import test from 'ava';
-import m from './';
+import getGulpTasks from './index.js';
 
-test(async t => {
-	t.deepEqual(await m(path.join(__dirname, 'fixture')), ['default', 'test']);
+test('main', async t => {
+	t.deepEqual(await getGulpTasks('fixture'), ['bar', 'foo']);
 });

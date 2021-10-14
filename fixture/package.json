@@ -1,5 +1,7 @@
 {
-  "devDependencies": {
-    "gulp": "^3.8.11"
-  }
+	"type": "module",
+	"devDependencies": {
+		"gulp": "^4.0.2",
+		"gulp-cli": "^2.3.0"
+	}
 }

@@ -1,54 +1,42 @@
 # get-gulp-tasks
 
-> Get the gulp tasks from a gulp project
+> Get the Gulp tasks from a Gulp project
 
-It spawns the local gulp binary in the specified directory and fetches the gulp tasks.
-
+It spawns the local gulp binary in the specified directory and fetches the Gulp tasks.
 
 ## Install
 
+```sh
+npm install get-gulp-tasks
 ```
-$ npm install --save get-gulp-tasks
-```
-
 
 ## Usage
 
 Imagine a `gulpfile.js` in `./gulp-project`:
 
 ```js
-const gulp = require('gulp');
-
-gulp.task('default', () => {});
-gulp.task('test', () => {});
+export const foo = () => {};
+export const bar = () => {};
 ```
 
 You can get its tasks with:
 
 ```js
-const getGulpTasks = require('get-gulp-tasks');
+import getGulpTasks from 'get-gulp-tasks';
 
-getGulpTasks('gulp-project').then(tasks => {
-	console.log(tasks);
-	//=> ['default', 'test']
-});
+console.log(await getGulpTasks('gulp-project'));
+//=> ['default', 'test']
 ```
-
 
 ## API
 
-### getGulpTasks([path])
+### getGulpTasks(cwd?)
 
-Returns a promise.
+Returns a `Promise<string[]>` with the tasks.
 
-#### path
+#### cwd
 
-Type: `string`  
+Type: `string`\
 Default: `process.cwd()`
 
-Path to the directory of your gulp project.
-
-
-## License
-
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+The path to the directory of your Gulp project.

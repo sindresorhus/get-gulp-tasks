@@ -1,40 +1,40 @@
 {
-  "name": "get-gulp-tasks",
-  "version": "4.0.0",
-  "description": "Get the gulp tasks from a gulp project",
-  "license": "MIT",
-  "repository": "sindresorhus/get-gulp-tasks",
-  "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com"
-  },
-  "engines": {
-    "node": ">=4"
-  },
-  "scripts": {
-    "pretest": "cd fixture && npm install",
-    "test": "xo && ava"
-  },
-  "files": [
-    "index.js"
-  ],
-  "keywords": [
-    "gulpfriendly",
-    "gulp",
-    "gulpfile",
-    "tasks",
-    "get",
-    "project"
-  ],
-  "dependencies": {
-    "execa": "^0.2.1"
-  },
-  "devDependencies": {
-    "ava": "*",
-    "xo": "*"
-  },
-  "xo": {
-    "esnext": true
-  }
+	"name": "get-gulp-tasks",
+	"version": "4.0.0",
+	"description": "Get the gulp tasks from a gulp project",
+	"license": "MIT",
+	"repository": "sindresorhus/get-gulp-tasks",
+	"funding": "https://github.com/sponsors/sindresorhus",
+	"author": {
+		"name": "Sindre Sorhus",
+		"email": "sindresorhus@gmail.com",
+		"url": "https://sindresorhus.com"
+	},
+	"type": "module",
+	"exports": "./index.js",
+	"engines": {
+		"node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+	},
+	"scripts": {
+		"pretest": "cd fixture && npm install",
+		"test": "xo && ava"
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"gulpfriendly",
+		"gulp",
+		"gulpfile",
+		"tasks",
+		"get",
+		"project"
+	],
+	"dependencies": {
+		"execa": "^5.1.1"
+	},
+	"devDependencies": {
+		"ava": "^3.15.0",
+		"xo": "^0.45.0"
+	}
 }

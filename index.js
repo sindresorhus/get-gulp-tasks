@@ -1,11 +1,7 @@
-'use strict';
-const execa = require('execa');
+import process from 'node:process';
+import execa from 'execa';
 
-module.exports = cwd => {
-	if (typeof cwd !== 'string') {
-		cwd = process.cwd();
-	}
-
-	return execa('gulp', ['--tasks-simple'], {cwd})
-		.then(x => x.stdout ? x.stdout.split('\n') : []);
-};
+export default async function getGulpTasks(cwd = process.cwd()) {
+	const {stdout} = await execa('gulp', ['--tasks-simple'], {cwd, localDir: cwd, preferLocal: true});
+	return stdout.split('\n');
+}
